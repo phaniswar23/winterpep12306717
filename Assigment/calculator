@@ -1,0 +1,60 @@
+#include <iostream>
+using namespace std;
+
+double calculate(double m, double n, char operation)
+{
+
+    if (operation == '+')
+    {
+        cout << "Addition" << endl;
+        return (m + n);
+    }
+    else if (operation == '-')
+    {
+        cout << "Subratcion" << endl;
+        return (m - n);
+    }
+    else if (operation == '*')
+    {
+        cout << "Multiplication" << endl;
+        return (m * n);
+    }
+    else if (operation == '/')
+    {
+        if (n != 0)
+        {
+            cout << "Devision" << endl;
+            return (m / n);
+        }
+        else
+            cout << "undefined" << endl;
+
+        return 0;
+    }
+    else
+    {
+        cout << "invalid op" << endl;
+
+        return 0;
+    }
+}
+
+int main()
+{
+    double p, q;
+    char op;
+
+    cout << "Enter first number: ";
+    cin >> p;
+
+    cout << "Enter second number: ";
+    cin >> q;
+
+    cout << "Enter operator (+, -, *, /): ";
+    cin >> op;
+
+    double result = calculate(p, q, op);
+    cout << "Result is " << result << endl;
+
+    return 0;
+}
