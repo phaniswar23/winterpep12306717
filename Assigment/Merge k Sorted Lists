@@ -1,0 +1,33 @@
+class Solution {
+public:
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+
+        vector<int> vals;
+
+        // Step 1: collect all values
+        for(int i=0;i<lists.size();i++){
+            ListNode* curr = lists[i];
+            while(curr){
+                vals.push_back(curr->val);
+                curr = curr->next;
+            }
+        }
+
+        // Step 2: if empty
+        if(vals.empty()) return NULL;
+
+        // Step 3: sort values
+        sort(vals.begin(), vals.end());
+
+        // Step 4: build new linked list
+        ListNode* head = new ListNode(vals[0]);
+        ListNode* temp = head;
+
+        for(int i=1;i<vals.size();i++){
+            temp->next = new ListNode(vals[i]);
+            temp = temp->next;
+        }
+
+        return head;
+    }
+};
